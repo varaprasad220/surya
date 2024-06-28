@@ -1,0 +1,415 @@
+SVN IS CENTRALIZED VERSION CONTROL SYSTEM HERE YOU CAN STORE SOURCE CODE ON SINGLE PLACE ONLY.
+GIT IS DISTRIBUTED VERSION CONTROL SYSTEM HERE YOU CAN STORE SOURCE CODE ON MULTIPLE PLACES.
+
+ROLLBACK MEANS GOING BACK TO THE PREVIOUS VERSION. (CURRUNET V-3 -- > V-2)
+
+STAGES: 3
+1. WORKING DIRECTORY	: Develope the code
+2. STAGING AREA		: The files are tracked here
+3. REPOSITORY		: The files are Stored here
+
+TYPES OF REPO:
+1. LOCAL	: on our local
+2. REMOTE	: on some remote location
+3. CENTRAL	: on internet
+
+INSTALLATION:
+yum install git -y	{yum=package manager install=action git=package -y=permission}
+git --version / git -v
+git init : Initialized empty Git repository (.git)
+
+
+touch java1	: to create a file
+git status	: to show the file is tracking or not.
+git add java1	: to track the file
+git status	: to show the file is tracking or not.
+git commit -m "" java1: to store the file on .git repo.
+git log		: to show the commits history.
+
+CONFIGURING USER & EMAIL:
+
+git config user.name "raham"
+git config user.email "raham@gmail.com"
+
+HISTORY:
+   1  mkdir swiggy
+    2  cd swiggy/
+    3  yum install git -y
+    4  git --version
+    5  git -v
+    6  ls -al
+    7  git init
+    8  ls -al
+    9  ll
+   10  touch java1
+   11  git status
+   12  git add java1
+   13  git status
+   14  git commit -m "commit1" java1
+   15  git status
+   16  git logs
+   17  git log
+   18  touch java2
+   19  git status
+   20  git add java2
+   21  git status
+   22  git commit -m "commit2" java2
+   23  git status
+   24  git log
+   25  git config user.name "raham"
+   26  git config user.email "raham@gmail.com"
+   27  git log
+   28  touch java3
+   29  git add java3
+   30  git commit -m "commit3" java3
+   31  git log
+   32  history
+
+DAY-02:
+DAY-02: BRANCHES
+Used to develope the source code individually.
+we can create, delete, rename, switch and list the branches.
+individual developers will work on individual branches.
+without .git folder (local repo) our commands will not work.
+Default branch in git is master.
+
+git branch 		: to list the branchs
+git branch branchname	: to create a branch called movies
+git checkout branchname	: to switch one branch to another
+git checkout -b branchname: to create and switch at a single time
+
+
+GITHUB:
+
+
+Create a repo
+git remote add origin https://github.com/prashanthikunchakuri22/paytm.git
+git push origin master
+
+
+from aug 2021 github removed the password for pushing the files.
+so here we need to use the tokens.
+
+settings -- > Developer settings -- > Personal access tokens -- > classic -- > generate token -- > select options -- > save
+
+Note: it will be visible only once.
+
+  2  mkdir paytm
+    3  cd paytm/
+    4  touch index.html
+    5  git status
+    6  git init
+    7  git status
+    8  git add index.html
+    9  git status
+   10  git commit -m "commit-1" index.html
+   11  git status
+   12  git branch
+   13  git branch movies
+   14  git branch
+   15  git checkout movies
+   16  ll
+   17  touch movies{1..5}
+   18  ll
+   19  git status
+   20  git add *
+   21  git status
+   22  git commit -m "dev-1" *
+   23  git status
+   24  ll
+   25  git branch
+   26  git branch train
+   27  git branch
+   28  ll
+   29  git checkout train
+   30  ll
+   31  touch train{1..5}
+   32  git status
+   33  git add *
+   34  git status
+   35  git commit -m "dev-2" *
+   36  git log
+   37  git branch
+   38  git checkout -b dth
+   39  git branch
+   40  ll
+   41  touch dth{1..5}
+   42  git status
+   43  git add *
+   44  git status
+   45  git commit -m "dev-3" *
+   46  ll
+   47  git branch
+   48  git checkout -b recharge
+   49  ll
+   50  touch recharge{1..5}
+   51  git add *
+   52  git commit -m "dev-4" *
+   53  ll
+   54  ls -al
+   55  git checkout master
+   56  git branch
+   57  git remote add origin https://github.com/prashanthikunchakuri22/paytm.git
+   58  git push origin master
+   59  git push origin movies
+   60  git push origin train
+   61  git push origin dth
+   62  git push origin recharge
+   63  history
+
+
+DAY-03:
+
+git log			: to show the logs
+git log --oneline	: to show the logs in single line
+git log --oneline -2	: to show the last 2 logs in single line
+git show commit_id	: to show the number of files commited to the commit 
+git diff cm_id1 cm_id2	: to show the difference blw two commits
+
+
+MERGE : Used to merge files on two different branches
+git checkout master
+git merge branchname
+
+REBASE : Used to merge files on two different branches
+git checkout master
+git merge branchname
+
+REVERT: To undo the Merging.
+git revert branch_name 
+
+
+HISTOYR:
+
+  2  cd paytm/
+    3*
+    4  git branch
+    5  git status
+    6  git init
+    7  git status
+    8  git branch
+    9  touch index.html
+   10  git add index.html
+   11*
+   12  git branch
+   13  git branch movies
+   14  git branch
+   15  git checkout movies
+   16  ll
+   17  touch novies{1..5}
+   18  git add *
+   19  git com it -m "dev-1" *
+   20  git commit -m "dev-1" *
+   21  git branch
+   22  git checkout -b train
+   23  touch train{1..5}
+   24  git add *
+   25  git commit -m "dev-1" *
+   26  git checkout -b dth
+   27  touch dth{1..5}
+   28  git add *
+   29  git commit -m "dev-3" *
+   30  git checkout -b recharge
+   31  git add *
+   32  git commit -m "dev-4" *
+   33  touch recharge{1..5}
+   34  git add *
+   35  git commit -m "dev-4" *
+   36  git log
+   37  git log --oneline
+   38  git log --oneline -2
+   39  git log --oneline -3
+   40  git log --oneline
+   41  git show efd143d
+   42  git show dev-4
+   43  git log --help
+   44  git log
+   45  git log --oneline
+   46  git diff efd143d f4a8766
+   47  git diff efd143d 7e80f59
+   48  git checkout master
+   49  ll
+   50  git merge movies
+   51  ll
+   52  git merge train
+   53  ll
+   54  git rebase dth
+   55  ll
+   56  git rebase recharge
+   57  ll
+   58  git revert recharge
+   59  ll
+   60  git revert
+   61  git revert  dth
+   62  ll
+   63  git undo train
+   64  git reset train
+   65  ll
+   66  git log
+   67  git branch
+   68  git checkout recharge
+   69  git log
+   70  git checkout master
+   71  ll
+   72  git revert train
+   73  git revert movies
+   74  ll
+   75  git remote add origin https://github.com/RAHAMSHAIK007/deletemenlater.git
+   76  git push origin master
+   77  git push origin movies
+   78  git push origin train
+   79  git push origin dth
+   80  git push origin recharge
+   81  git push origin movies
+   82  git branch
+   83  git branch -d movies
+   84  git branch
+   85  git restore movies
+   86  git restore --help
+   87  git branch
+   88  git branch -m recharge raham
+   89  git branch
+   90  git branch -m train abcd
+   91  git branch
+   92  history
+
+
+
+MERGE CONFLICT: When two different branches merged with common files and different code 
+this can be resolved manually.
+
+GIT STASH: To hide the files temperorly.
+
+git stash	: To hide the file
+git stash apply	: To un-hide the file
+git stash list	: To get list of stashes
+git stash pop	: To remove the last stash
+git stash clear	: To remove all the stash
+
+CHERRY-PICK: To merge the files with specific commits.
+
+git show commit-id
+git cherry-pick commit-id
+
+
+CLONE: To use the repository on local. 
+FORK: To use the repository on github.
+
+PUSH: To send files from local to github.
+PULL: To get changes of files from Github to local.
+FETCH: To show the changes from central to local.
+
+
+1. LOCAL REPO VS CENTRAL REPO
+2. MERGE VS REBASE
+3. MERGE VS CHERRY-PICK
+4. PULL VS PUSH
+5. PULL VS CLONE
+6. PULL VS FETCH
+
+RESTORE: To make a file untracked
+git restore --staged file10
+
+    1  mdkir abcd
+    2  mkdir swiggy
+    3  cd swiggy/
+    4  yum install git -y
+    5  git init
+    6  git branch -m branch1
+    7  vim file1
+    8  git add file1
+    9  git commit -m "dev-1" file1
+   10  git branch
+   11  git checkout -b branch2
+   12  ll
+   13  vim file1
+   14  git add file1
+   15  git commit -m "dev-2" file1
+   16  git checkout branch1
+   17  vim file1
+   18  git add file1
+   19  git commit -m "dev-1 2.0 commits" file1
+   20  cat file1
+   21  git checkout branch2
+   22  cat file1
+   23  git checkout branch1
+   24  git merge branch2
+   25  vim file1
+   26  git add file1
+   27  git commit -m "new code" file1
+   28  git commit -m "new code"
+   29  cat file1
+   30  git status
+   31  cd
+   32  mkdir raham
+   33  cd raham/
+   34  git init
+   35  touch file1
+   36  git add file1
+   37  git commit -m "one" file1
+   38  git branch
+   39  ll
+   40  touch file2
+   41  git add file2
+   42  ll
+   43  git stash
+   44  ll
+   45  git stash apply
+   46  ll
+   47  git stash list
+   48  git stash pop
+   49  cd
+   50  mkdir abcde
+   51  cd abcde/
+   52  git init
+   53  git branch -m branch1
+   54  touch index.html
+   55  git add index.html
+   56  git commit -m "one" index.html
+   57  git checkout -b branch2
+   58  ll
+   59  touch java{1..5}
+   60  git add *
+   61  git commit -m "java" *
+   62  touch python{1..5}
+   63  git add *
+   64  git commit -m "python" *
+   65  git log --oneline
+   66  ls
+   67  git checkout branch1
+   68  ll
+   69  git show 694a8ed
+   70  git cherry-pick 694a8ed
+   71  ll
+   72  git show 92e32f0
+   73  git cherry-pick  92e32f0
+   74  git log
+   75  cd
+   76  ll
+   77  git clone https://github.com/RAHAMSHAIK007/linux.git
+   78  ll
+   79  git clone https://github.com/RAHAMSHAIK007/11ambatch2023.git
+   80  ll
+   81  cd 11ambatch2023/
+   82  ll
+   83  ls
+   84  cat file1
+   85  cat abcd
+   86  vim abcd
+   87  git pull
+   88  cat abcd
+   89  git pull
+   90  cat abcd
+   91  git fetch
+   92  cat abcd
+   93  git pull
+   94  cat abcd
+   95  git push origin main
+   96  touc file10
+   97  touch file10
+   98  git status
+   99  git add file10
+  100  git status
+  101  git restore --staged file10
+  102  git status
+  103  history
